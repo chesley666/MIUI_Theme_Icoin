@@ -12,4 +12,4 @@
 第三方图标大小需要手动修改图标滤镜
 
 效果预览：
-![Image text](https://github.com/ChesleyCN/MIUI_Theme_Icoin/tree/master/preview/syaoran_preview.gif)
+![Image text](https://github.com/ChesleyCN/MIUI_Theme_Icoin/blob/master/preview/syaooran_preview.gif)
