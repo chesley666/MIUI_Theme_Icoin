@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Icon version="1" width="182" height="182" screenWidth="1080" frameRate="24">
+	<Var const="true" expression="" name="face" type="string"/>
+    <Var const="true" expression="133" name="face_w"/>
+	<Var const="true" expression="133" name="face_h"/>
+	<Var const="true" expression="'com.android.browser.png'" name="base_coin" type="string"/>
+	<Var const="true" expression="192" name="base_coin_w"/>
+	<Var const="true" expression="192" name="base_coin_h"/>
+	<Var const="true" expression="'icon_border.png'" name="mask" type="string"/>
+	<Var const="true" expression="192" name="mask_w"/>
+	<Var const="true" expression="192" name="mask_h"/>
+	
+	<Var const="true" expression="96" name="x"/>
+	<Var const="true" expression="96" name="y"/>
+	
+	<!--Var const="true" expression="int(10000*rand())" name="start_time"/-->
+    
+	<Group>
+       <Image x="#x" y="#y" align="center" alignV="center" srcExp="@base_coin" name="base_img">
+			<SizeAnimation>
+				<Item w="#base_coin_w" h="#base_coin_h" time="0"/>
+				<Item w="#base_coin_w" h="#base_coin_h" time="#start_time+0"/>
+				<Item w="0" h="#base_coin_h" time="#start_time+200"/>
+				<Item w="0" h="#base_coin_h" time="#start_time+2200"/>
+				<Item w="#base_coin_w" h="#base_coin_h" time="#start_time+2400"/>
+				<Item w="#base_coin_w" h="#base_coin_h" time="#start_time+4400"/>
+			</SizeAnimation>
+	   </Image>
+	   <Image x="#x" y="#y" align="center" alignV="center" srcExp="@mask" name="base_mask_img">
+			<SizeAnimation>
+				<Item w="#mask_w" h="#mask_h" time="0"/>
+				<Item w="#mask_w" h="#mask_h" time="#start_time+0"/>
+				<Item w="0" h="#mask_h" time="#start_time+200"/>
+				<Item w="0" h="#mask_h" time="#start_time+3200"/>
+				<Item w="#mask_w" h="#mask_h" time="#start_time+3400"/>
+				<Item w="#mask_w" h="#mask_h" time="#start_time+5400"/>
+			</SizeAnimation>
+	   </Image>
+    </Group>
+    <Group>
+	   <Image x="#x" y="#y" align="center" alignV="center" srcExp="@face" name="face_img">
+			<SizeAnimation>
+				<Item w="0" h="#face_h" time="0"/>
+				<Item w="0" h="#face_h" time="#start_time+0"/>
+				<Item w="#face_w" h="#face_h" time="#start_time+200"/>
+				<Item w="#face_w" h="#face_h" time="#start_time+3200"/>
+				<Item w="0" h="#face_h" time="#start_time+3400"/>
+				<Item w="0" h="#face_h" time="#start_time+5400"/>
+			</SizeAnimation>
+	   </Image>
+	   <Image x="#x" y="#y" align="center" alignV="center" srcExp="@mask" name="face_mask_img">
+			<SizeAnimation>
+				<Item w="0" h="#mask_h" time="0"/>
+				<Item w="0" h="#mask_h" time="#start_time+0"/>
+				<Item w="#mask_w" h="#mask_h" time="#start_time+200"/>
+				<Item w="#mask_w" h="#mask_h" time="#start_time+3200"/>
+				<Item w="0" h="#mask_h" time="#start_time+3400"/>
+				<Item w="0" h="#mask_h" time="#start_time+5400"/>
+			</SizeAnimation>
+	   </Image>
+	</Group>
+</Icon>

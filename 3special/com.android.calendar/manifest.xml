@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- calendar -->
+<Icon version="1" frameRate="0" width="182" height="182" screenWidth="1080" useVariableUpdater="DateTime.Day">
+	<Var const="true" expression="'mask.png'" name="mask" type="string" />
+	<Var const="true" expression="96" name="x" />
+	<Var const="true" expression="96" name="y" />
+    <VariableBinders>
+	    <BroadcastBinder action="android.intent.action.TIME_SET" />
+        <BroadcastBinder action="android.intent.action.DATE_CHANGED" />
+    </VariableBinders>
+	
+	<Var name="num_temp" expression="len(abs(#date))" />
+	<Var name="offset_img_y" expression="95" />
+	<Var name="offset_imag1" expression="ifelse(eq(#num_temp,2),91+15,91)" />
+	<Var name="offset_imag2" expression="ifelse(eq(#num_temp,2),91-15,#offset_imag1)" />
+	
+	<Image x="91" y="91" align="center" alignV="center" srcExp="'bg' + '.png'" />
+    <Group pivotX="91" pivotY="91">	   
+	   <Image name="img1" x="#offset_imag1" y="#offset_img_y" align="center" alignV="center" srcExp="digit(abs(#date),1)+'.png'" />
+		<Image name="img2" visibility="eq(#num_temp,2)" x="#offset_imag2" y="#offset_img_y" align="center" alignV="center" srcExp="digit(abs(#date),2)+'.png'" />	
+    </Group>
+	<Image align="center" alignV="center" name="base_mask_img" srcExp="@mask" x="#x" y="#y"/>
+</Icon>

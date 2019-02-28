@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+         
+<Icon version="1" frameRate="1" width="182" height="182" screenWidth="1080" useVariableUpdater="DateTime">
+	<Var const="true" expression="'mask.png'" name="mask" type="string" />
+	<Var const="true" expression="96" name="x" />
+	<Var const="true" expression="96" name="y" />
+    <Group>
+        <!--表盘-->
+        <Image x="91" y="91" align="center" alignV="center" src="173.png" />
+        <!--时针 -->
+        <Image x="91" y="58" align="center" pivotX="3" pivotY="29" src="hour.png" angle="#hour12*30+#minute/2"/>
+        <!--分针-->
+        <Image x="91" y="46" align="center" pivotX="3" pivotY="40" src="minute.png" angle="#minute*6+#second/10"/>
+        <!--秒针-->
+        <Image x="91" y="39" align="center" pivotX="6" pivotY="50" src="second.png" angle="#second*6"/>
+        <!--中心点-->
+        <Image x="91" y="91" align="center" alignV="center" src="thumb.png"/>
+		<Image align="center" alignV="center" name="base_mask_img" srcExp="@mask" x="#x" y="#y"/>
+    </Group>    
+</Icon>

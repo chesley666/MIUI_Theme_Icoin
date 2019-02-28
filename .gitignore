@@ -1,0 +1,6 @@
+.idea
+__pycache
+result/
+imgs/
+faces/
+temp_baseicoin/
