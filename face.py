@@ -30,32 +30,29 @@ def img_circle(input_img):
 
 
 def detect(filename,cascade_file="lbpcascade_animeface.xml"):
-    # ---------------------
-    # 作者：莫凡的博客
-    # 来源：CSDN
-    # 原文：https://blog.csdn.net/mozf881/article/details/83592977
-    # 版权声明：本文为博主原创文章，转载请附上博文链接！
-    if not os.path.isfile(cascade_file):
-        raise RuntimeError("%s: not found" % cascade_file)
-    cascade = cv2.CascadeClassifier(cascade_file)
-    image = cv2.imread(filename)
-    gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-    gray = cv2.equalizeHist(gray)
-    faces = cascade.detectMultiScale(
-        gray,
-        # detector options
-        scaleFactor = 1.1,
-        minNeighbors = 5,
-        minSize = (32,32)
-    )
-    for i,(x,y,w,h) in enumerate(faces):
-        face = image[y: y+h, x:x+w, :]
-        face = cv2.resize(face, (144, 144))
-        save_filename = hashlib.md5(os.path.basename(os.path.realpath(filename)).encode('utf-8')).hexdigest()
-        save_filename = '%s.jpg' % save_filename
+    try:
+        if not os.path.isfile(cascade_file):
+            raise RuntimeError("%s: not found" % cascade_file)
+        cascade = cv2.CascadeClassifier(cascade_file)
+        image = cv2.imread(filename)
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        gray = cv2.equalizeHist(gray)
+        faces = cascade.detectMultiScale(
+            gray,
+            # detector options
+            scaleFactor = 1.1,
+            minNeighbors = 5,
+            minSize = (32,32)
+        )
+        for i,(x,y,w,h) in enumerate(faces):
+            face = image[y: y+h, x:x+w, :]
+            face = cv2.resize(face, (144, 144))
+            save_filename = hashlib.md5(os.path.basename(os.path.realpath(filename)).encode('utf-8')).hexdigest()
+            save_filename = '%s.jpg' % save_filename
 
-        cv2.imwrite("faces/"+save_filename, face)
-
+            cv2.imwrite("faces/"+save_filename, face)
+    except:
+        print("识别出错，跳过文件"+filename)
 
 
 if __name__ == '__main__':
